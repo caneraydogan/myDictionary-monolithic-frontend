@@ -1,0 +1,111 @@
+<div class=" page-container mat-elevation-z8">
+    <div class="card card-body mb-3">
+        <div class="form-group row">
+            <div class="col">
+                <input type="radio" required value="EN"
+                       name="language"
+                       [(ngModel)]="filter.set.language"> English
+                <input type="radio" required value="DE"
+                       name="language"
+                       [(ngModel)]="filter.set.language"> Deutsch
+                <button class="btn btn-primary btn-secondary"
+                        (click)="getEntries()"> Show All
+                </button>
+            </div>
+
+            <div class="col">
+                <div class="row">
+                    <input type="text"
+                           class="form-control-manual"
+                           [(ngModel)]="filter.searchValue"
+                           [ngModelOptions]="{standalone: true}"
+                    >
+                    <button (click)="search()"
+                            [disabled]="filter.searchValue.trim()  == ''"
+                            class="btn btn-danger">Search
+                    </button>
+                </div>
+            </div>
+
+            <div class="pull-right">
+                <button name="showPractice"
+                        [(ngModel)]="filter.showPractice"
+                        ngDefaultControl
+                        [ngClass]="[filter.showPractice ? 'btn-danger' : 'btn-light']"
+                        (click)="clickShowPractiseButton()"
+                        class="btn">Practice
+                </button>
+                <button name="showDonePracticing"
+                        [(ngModel)]="filter.showDonePractising"
+                        ngDefaultControl
+                        [ngClass]="[filter.showDonePractising ? 'btn-danger' : 'btn-light']"
+                        (click)="clickShowDonePractisingButton()"
+                        class="btn">Done Practising
+                </button>
+            </div>
+
+        </div>
+
+
+        <mat-table class="table-container" [dataSource]="dataSource">
+
+            <!-- Artikel Column -->
+            <ng-container matColumnDef="artikel" class="mat-column-artikel">
+                <mat-header-cell *matHeaderCellDef class="header">Artikel</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line">{{entry.artikel}}</mat-cell>
+            </ng-container>
+
+            <!-- Word Column -->
+            <ng-container matColumnDef="word" class="mat-column-word">
+                <mat-header-cell *matHeaderCellDef class="header">Word</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line">{{entry.word}}</mat-cell>
+            </ng-container>
+
+            <!-- Meaning Column -->
+            <ng-container matColumnDef="meaning" class="mat-column-meaning">
+                <mat-header-cell *matHeaderCellDef class="header">Meaning</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line">
+                    <div class="row-cols-1">
+                        <div *ngFor="let meaning of entry.meaningList">
+                            <li>  {{meaning.value}} </li>
+                        </div>
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Usage Column -->
+            <ng-container matColumnDef="usage" class="mat-column-usage">
+                <mat-header-cell *matHeaderCellDef class="header">Usage</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line">
+                    <div class="row-cols-1">
+                        <div *ngFor="let usage of entry.usageList">
+                            <li>  {{usage.value}} </li>
+                        </div>
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="actions" class="mat-column-actions">
+                <mat-header-cell *matHeaderCellDef class="header">Actions</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line">
+                    <button mat-button
+                            class="delete-button"
+                            (click)="deleteEntry(entry)">Delete
+                    </button>
+                    <button mat-button
+                            (click)="updateEntry(entry)">Update
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+
+        </mat-table>
+    </div>
+</div>
+
+
+
+

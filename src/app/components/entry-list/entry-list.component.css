@@ -1,0 +1,96 @@
+
+.page-container {
+  overflow: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 700px;
+}
+
+.table-container {
+  background: white;
+}
+
+.header {
+  font-weight: bold;
+  color: darkslategrey;
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: auto;
+  padding: auto;
+}
+
+.line {
+  font-weight: normal;
+  color: darkslategrey;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: auto;
+  padding: auto;
+  height: auto;
+}
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: whitesmoke;
+}
+
+.mat-column-artikel {
+  white-space: unset;
+  flex: 0 0 10%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.mat-column-word {
+  white-space: unset;
+  flex: 0 0 15%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
+
+}
+
+.mat-column-meaning {
+  white-space: unset;
+  flex: 0 0 30%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
+}
+
+.mat-column-usage {
+  white-space: unset;
+  flex: 0 0 30%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
+}
+
+.mat-column-type {
+  white-space: unset;
+  flex: 0 0 10%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.mat-column-actions {
+  white-space: unset;
+  flex: 0 0 18%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
+}
+
+.delete-button {
+  margin-right: 5px;
+}
+
+

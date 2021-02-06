@@ -1,0 +1,49 @@
+
+.lastEntryTitle {
+  font-style: normal;
+  font-weight: bold;
+  padding-left: 0px;
+  font-size: 15px;
+  color: cornflowerblue;
+}
+
+.lastEntryPoint {
+  font-style: normal;
+  padding-left: 15px;
+  font-size: 15px;
+  color: darksalmon;
+}
+
+.lastEntryDesc {
+  font-style: oblique;
+  padding-left: 15px;
+  font-size: 15px;
+  color: darkgray;
+}
+
+
+.lastEntryMeaning {
+  font-style: oblique;
+  padding-left: 50px;
+  font-size: 15px;
+  color: darkgray;
+}
+
+.invalid-feedback-manual {
+  width: 100%;
+  margin-top: 0rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.languageDropdownPosition {
+  padding-left: 14px;
+}
+
+.typeDropdownPosition {
+  padding-left: 50px;
+}
+
+.dropdownLabelAlign{
+  padding-left: 15px;
+}

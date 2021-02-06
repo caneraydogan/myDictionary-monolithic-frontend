@@ -1,0 +1,133 @@
+<div class="container">
+    <h2>Add Entry</h2>
+    <div class="card card-body mb-3">
+        <form #EntryForm="ngForm">
+            <div class="form-group">
+                <input type="radio" #language="ngModel" required [id]="currentEntry.language" value="EN" name="language"
+                       [(ngModel)]="currentEntry.language"> English
+                <input type="radio" #language="ngModel" required [id]="currentEntry.language" value="DE" name="language"
+                       [(ngModel)]="currentEntry.language"> Deutsch
+            </div>
+
+            <div class="form-group" *ngIf="currentEntry.language == 'DE'">
+                <label>Artikel</label>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input type="text"
+                               class="form-control"
+                               [ngClass]="{'is-invalid': !isArtikelValid(artikel.value)}"
+                               [(ngModel)]="currentEntry.artikel"
+                               name="artikel"
+                               #artikel="ngModel"
+                               [required]="currentEntry.language=='DE'">
+                        <div class="invalid-feedback">
+                            Invalid Artikel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Word</label>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input type="text"
+                               class="form-control"
+                               [ngClass]="{'is-invalid':word.errors}"
+                               [(ngModel)]="currentEntry.word"
+                               name="word"
+                               #word="ngModel"
+                               required
+                               (ngModelChange)="checkRequiredFields()"
+                               minlength="2">
+                        <div class="invalid-feedback">
+                            Word required
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Meaning</label>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input *ngFor="let meaning of currentEntry.meaningList"
+                               [(ngModel)]="meaning.value"
+                               [ngModelOptions]="{standalone: true}"
+                               name="meaning"
+                               [ngClass]="{'is-invalid':meaning.value == null || meaning.value.length == 0}"
+                               type="text"
+                               class="form-control"
+                               (ngModelChange)="checkRequiredFields()"
+                               minlength="2">
+                        <div class="invalid-feedback">
+                            Meaning required
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <button (click)="addMeaning()"
+                                class="btn btn-outline-dark">+
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Usage</label>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input *ngFor="let usage of currentEntry.usageList"
+                               [(ngModel)]="usage.value"
+                               [ngModelOptions]="{standalone: true}"
+                               name="usage"
+                               [ngClass]="{'is-invalid':usage.value == null || usage.value.length == 0}"
+                               type="text"
+                               class="form-control"
+                               (ngModelChange)="checkRequiredFields()"
+                               minlength="2">
+                        <div class="invalid-feedback">
+                            Usage required
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <button (click)="addUsage()"
+                                class="btn btn-outline-dark">+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" [(ngModel)]="currentEntry.id" name="id">
+            <button [disabled]=" missingMeaning || missingUsage || !isArtikelValid(currentEntry.artikel)"
+                    (click)="saveEntry()"
+                    class="btn btn-primary btn-block">Add Entry
+            </button>
+        </form>
+    </div>
+    <div *ngIf="lastEntry.word !== null" class="card card-body mb-3">
+        <label class="lastEntryTitle">Last Entry</label>
+        <div *ngIf="lastEntry.language=='DE'">
+            <label class="lastEntryPoint">Artikel:</label>
+            <span class="lastEntryDesc">{{lastEntry.artikel}}</span>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Word:</label>
+            <span class="lastEntryDesc">{{lastEntry.word}}</span>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Meaning</label>
+            <div *ngFor="let meaning of lastEntry.meaningList">
+                <div class="lastEntryMeaning">
+                    <li>  {{meaning.value}} </li>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Usage</label>
+            <div *ngFor="let usage of lastEntry.usageList">
+                <div class="lastEntryMeaning">
+                    <li>  {{usage.value}} </li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

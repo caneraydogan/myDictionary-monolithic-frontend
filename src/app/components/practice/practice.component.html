@@ -1,0 +1,210 @@
+<div class="container">
+    <h2>Practice</h2>
+    <div class="card card-body mb-3">
+        <form #EntryForm="ngForm">
+            <div class="form-group row">
+                <div class="col">
+                    <input type="radio" required [id]="currentEntry.language" value="EN"
+                           name="language"
+                           (click)="clearFields()"
+                           [(ngModel)]="currentEntry.language"> English
+                    <input type="radio" required [id]="currentEntry.language" value="DE"
+                           name="language"
+                           [(ngModel)]="currentEntry.language"> Deutsch
+                </div>
+
+                <div class="col">
+                    <button name="showPractice"
+                            [(ngModel)]="filter.showPractice"
+                            ngDefaultControl
+                            [ngClass]="[filter.showPractice ? 'btn-danger' : 'btn-light']"
+                            (click)="clickShowPractiseButton()"
+                            class="btn">Practice
+                    </button>
+                    <button name="showDonePracticing"
+                            [(ngModel)]="filter.showDonePractising"
+                            ngDefaultControl
+                            [ngClass]="[filter.showDonePractising ? 'btn-danger' : 'btn-light']"
+                            (click)="clickShowDonePractisingButton()"
+                            class="btn">Done Practising
+                    </button>
+                </div>
+
+                <div class="pull-right col-3">
+                    <input id="noPractice-checkbox" type="checkbox" class="manuel-checkbox"
+                           [(ngModel)]="currentEntry.donePracticing" [ngModelOptions]="{standalone: true}"
+                           (click)="updatePractice()"/>
+                    <label>Done Practicing!</label>
+                </div>
+
+            </div>
+
+            <div class="form-group" *ngIf="currentEntry.language == 'DE'">
+                <input id="artikel-checkbox" type="checkbox" class="manuel-checkbox"
+                       [(ngModel)]="filter.set.checkbox.artikel" [ngModelOptions]="{standalone: true}"/>
+                <label>Artikel</label>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <input type="text"
+                               class="form-control manual-form-control"
+                               [ngClass]="{'is-invalid': !isArtikelValid(artikel.value)}"
+                               [(ngModel)]="currentEntry.artikel"
+                               #artikel="ngModel"
+                               name="artikel"
+                               [disabled]="!filter.isUpdateClicked"
+                               [hidden]="!filter.set.checkbox.artikel">
+                        <div class="invalid-feedback">
+                            Invalid Artikel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input id="word-checkbox" type="checkbox" class="manuel-checkbox"
+                       [(ngModel)]="filter.set.checkbox.word"
+                       [ngModelOptions]="{standalone: true}"/>
+                <label>Word</label>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <input type="text"
+                               class="form-control manual-form-control"
+                               [ngClass]="{'is-invalid':word.errors && word.touched}"
+                               [(ngModel)]="currentEntry.word"
+                               name="word"
+                               #word="ngModel"
+                               required
+                               minlength="2"
+                               [disabled]="!filter.isUpdateClicked"
+                               [hidden]="!filter.set.checkbox.word">
+                        <div class="invalid-feedback">
+                            Word required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input id="meaning-checkbox" type="checkbox" class="manuel-checkbox"
+                       [(ngModel)]="filter.set.checkbox.meaning" [ngModelOptions]="{standalone: true}"/>
+                <label>Meaning</label>
+                <ngForm *ngFor="let meaning of currentEntry.meaningList">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="meaning.value"
+                                    [disabled]="!filter.isUpdateClicked"
+                                    name="meaning+{{meaning.id}}"
+                                    (ngModelChange)="checkRequiredFields()"
+                                    [hidden]="!filter.set.checkbox.meaning">
+
+                        </div>
+                        <div class="col-sm" [hidden]="meaning.id == currentEntry.meaningList[0].id">
+                            <button (click)="deleteMeaning(meaning.id)"
+                                    [hidden]="!filter.set.checkbox.meaning || !filter.isUpdateClicked"
+                                    class="btn btn-outline-dark">-
+                            </button>
+                        </div>
+                        <div class="col-sm" [hidden]="meaning.id != currentEntry.meaningList[0].id">
+                            <button (click)="addMeaning()"
+                                    [hidden]="!filter.set.checkbox.meaning  || !filter.isUpdateClicked"
+                                    class="btn btn-outline-dark">+
+                            </button>
+                        </div>
+                    </div>
+                </ngForm>
+                <div class="invalid-feedback">
+                    Meaning required
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input id="usage-checkbox" type="checkbox" class="manuel-checkbox"
+                       [(ngModel)]="filter.set.checkbox.usage" [ngModelOptions]="{standalone: true}"/>
+                <label>Usage</label>
+                <ngForm *ngFor="let usage of currentEntry.usageList">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="usage.value"
+                                    [disabled]="!filter.isUpdateClicked"
+                                    name="usage+{{usage.id}}"
+                                    (ngModelChange)="checkRequiredFields()"
+                                    [hidden]="!filter.set.checkbox.usage">
+
+                        </div>
+                        <div class="col-sm" [hidden]="usage.id == currentEntry.usageList[0].id">
+                            <button (click)="deleteUsage(usage.id)"
+                                    [hidden]="!filter.set.checkbox.usage || !filter.isUpdateClicked"
+                                    class="btn btn-outline-dark">-
+                            </button>
+                        </div>
+                        <div class="col-sm" [hidden]="usage.id != currentEntry.usageList[0].id">
+                            <button (click)="addUsage()"
+                                    [hidden]="!filter.set.checkbox.usage  || !filter.isUpdateClicked"
+                                    class="btn btn-outline-dark">+
+                            </button>
+                        </div>
+                    </div>
+                </ngForm>
+                <div class="invalid-feedback">
+                    Meaning required
+                </div>
+            </div>
+
+
+            <input type="hidden" [(ngModel)]="currentEntry.id" name="id">
+
+            <div class="col-sm-11">
+                <button (click)="getRandomEntry()"
+                        class="btn btn-outline-primary btn-block">Next
+                </button>
+                <button (click)="updateEntry()"
+                        class="btn btn-success btn-block"
+                        [disabled]=" EntryForm.form.invalid || !isEntryValid()"
+                        [hidden]="!filter.isUpdateClicked">Save
+                </button>
+                <button (click)="setUpdate(false)"
+                        class="btn btn-danger btn-block"
+                        [hidden]="!filter.isUpdateClicked">Cancel
+                </button>
+                <button (click)="deleteEntry()"
+                        [hidden]="filter.isUpdateClicked || currentEntry.word == null"
+                        class="btn btn-outline-danger btn-block">Delete
+                </button>
+                <button (click)="setUpdate(true)"
+                        class="btn btn-outline-warning btn-block"
+                        [hidden]="filter.isUpdateClicked || currentEntry.word == null"> Update
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <div *ngIf="lastEntry.word !== null" class="card card-body mb-3">
+        <label class="lastEntryTitle">Last Entry</label>
+        <div *ngIf="lastEntry.artikel != null">
+            <label class="lastEntryPoint">Artikel:</label>
+            <span class="lastEntryDesc">{{lastEntry.artikel}}</span>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Word:</label>
+            <span class="lastEntryDesc">{{lastEntry.word}}</span>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Meaning</label>
+            <div *ngFor="let meaning of lastEntry.meaningList">
+                <li class="lastEntryMeaning">  {{meaning.value}} </li>
+            </div>
+        </div>
+        <div>
+            <label class="lastEntryPoint">Usage</label>
+            <div *ngFor="let usage of lastEntry.usageList">
+                <li class="lastEntryMeaning">  {{usage.value}} </li>
+            </div>
+        </div>
+    </div>
+</div>
