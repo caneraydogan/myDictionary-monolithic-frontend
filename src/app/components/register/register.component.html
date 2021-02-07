@@ -8,7 +8,7 @@
                        [ngClass]="{ 'is-invalid': submitted && attribute.firstName.errors }"/>
                 <div *ngIf="submitted && attribute.firstName.errors" class="invalid-feedback">
                     <div *ngIf="attribute.firstName.errors.required">First Name is required</div>
-                    <div *ngIf="attribute.password.errors.minlength">First Name must be min 2 characters</div>
+                    <div *ngIf="attribute.firstName.errors.minlength">First Name must be min 2 characters</div>
                 </div>
             </div>
             <div class="form-group">
@@ -36,6 +36,14 @@
                 <div *ngIf="submitted && attribute.password.errors" class="invalid-feedback">
                     <div *ngIf="attribute.password.errors.required">Password is required</div>
                     <div *ngIf="attribute.password.errors.minlength">Password must be min 8 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Invitation Code</label>
+                <input type="text" formControlName="invitationCode" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && attribute.invitationCode.errors }"/>
+                <div *ngIf="submitted && attribute.invitationCode.errors" class="invalid-feedback">
+                    <div *ngIf="attribute.invitationCode.errors.required">Invitation code is required</div>
                 </div>
             </div>
             <div class="form-group">
