@@ -43,3 +43,10 @@
 .dropdownLabelAlign{
   padding-left: 15px;
 }
+
+.page-container {
+  overflow: auto;
+  padding-left: 265px;
+  padding-right: 10%;
+  height: 700px;
+}

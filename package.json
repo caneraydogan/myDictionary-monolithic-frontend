@@ -24,6 +24,7 @@
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "ngx-perfect-scrollbar": "^7.1.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.11.1",
