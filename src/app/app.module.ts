@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './components/navbar/navbar.component';
 import {EntryListComponent} from './components/entry-list/entry-list.component';
 import {MatButtonModule, MatTableModule} from '@angular/material';
 import {DataService} from './components/dataservice/data-service.component';
@@ -16,7 +15,17 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {UserComponent} from './components/user/user.component';
 import {HttpErrorInterceptor} from './components/utils/HttpErrorInterceptor';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
 
 const appRoutes: Routes = [
     {path: 'entry-list', component: EntryListComponent},
@@ -31,13 +40,13 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent,
         EntryListComponent,
         NewEntryComponent,
         PracticeComponent,
         LoginComponent,
         RegisterComponent,
-        UserComponent
+        UserComponent,
+        SidebarComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +62,9 @@ const appRoutes: Routes = [
         ),
         AppRoutingModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PerfectScrollbarModule,
+        BrowserAnimationsModule
     ],
     providers: [DataService, EntryListComponent,
         NewEntryComponent, PracticeComponent, LoginComponent, RegisterComponent, UserComponent,
@@ -61,7 +72,12 @@ const appRoutes: Routes = [
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
             multi: true,
-        }],
+        },
+        {
+            provide: PERFECT_SCROLLBAR_CONFIG,
+            useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+        }
+        ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
