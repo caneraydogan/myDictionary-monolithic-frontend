@@ -15,7 +15,6 @@ import {AuthenticationService} from '../services/authentication.service';
 export class PracticeComponent implements OnInit {
 
     id: number;
-    language: string;
 
     @Output() newEntry: EventEmitter<Entry> = new EventEmitter();
     currentEntry = new Entry();
@@ -25,10 +24,6 @@ export class PracticeComponent implements OnInit {
 
     filter = {
         get: {
-            language: [
-                {value: 'EN'},
-                {value: 'DE'}
-            ],
             artikel: [
                 {value: 'der'},
                 {value: 'die'},
@@ -60,11 +55,10 @@ export class PracticeComponent implements OnInit {
 
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
-            this.language = params.get('language');
             this.id = +params.get('id');
         });
 
-        if (this.id !== undefined && this.language !== undefined) {
+        if (this.id !== undefined) {
             this.getEntryById();
         }
     }
@@ -100,12 +94,10 @@ export class PracticeComponent implements OnInit {
     }
 
     getRandomEntry() {
-        this.dataService.getRandomEntry(AuthenticationService.getUserUUId(), this.currentEntry.language, this.filter.showDonePractising).subscribe(response => {
+        this.dataService.getRandomEntry(AuthenticationService.getUserUUId(), this.filter.showDonePractising).subscribe(response => {
             if (response.status === ResponseBodyStatus.OK) {
                 this.lastEntry = this.currentEntry;
-                const language = this.currentEntry.language;
                 this.currentEntry = response.data;
-                this.currentEntry.language = language;
                 this.setUpdate(false);
                 this.currentEntry.userUUId = AuthenticationService.getUserUUId();
             } else if (response.status === ResponseBodyStatus.FAIL) {
@@ -117,10 +109,9 @@ export class PracticeComponent implements OnInit {
     }
 
     getEntryById() {
-        this.dataService.getEntryById(this.language, this.id).subscribe(response => {
+        this.dataService.getEntryById(this.id).subscribe(response => {
             if (response.status === ResponseBodyStatus.OK) {
                 this.currentEntry = response.data;
-                this.currentEntry.language = this.language;
                 this.currentEntry.userUUId = AuthenticationService.getUserUUId();
                 this.setUpdate(true);
                 this.setCheckboxes();
@@ -132,7 +123,7 @@ export class PracticeComponent implements OnInit {
     }
 
     private setCheckboxes() {
-        this.filter.set.checkbox.artikel = this.language === 'DE';
+        this.filter.set.checkbox.artikel = true;
         this.filter.set.checkbox.word = true;
         this.filter.set.checkbox.meaning = true;
         this.filter.set.checkbox.usage = true;
@@ -148,16 +139,16 @@ export class PracticeComponent implements OnInit {
     }
 
     isArtikelValid(candidate: string): boolean {
-        // tslint:disable-next-line:triple-equals
-        if (this.currentEntry.language === 'EN' || candidate == undefined) {
+        if (candidate === undefined || candidate == null) {
             return true;
-        } else {
-            for (const artikel of this.filter.get.artikel) {
-                if (candidate.toUpperCase() === artikel.value.toUpperCase()) {
-                    return true;
-                }
+        }
+
+        for (const artikel of this.filter.get.artikel) {
+            if (candidate.toUpperCase() === artikel.value.toUpperCase()) {
+                return true;
             }
         }
+
         return false;
     }
 

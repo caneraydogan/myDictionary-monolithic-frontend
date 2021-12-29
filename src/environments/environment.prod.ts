@@ -5,10 +5,10 @@
 export const environment = {
   production: true,
   local: 'http://localhost:8080',
-  aws: 'http://ec2-3-123-2-213.eu-central-1.compute.amazonaws.com:8080'
+  aws: 'http://68.183.130.50:8080'
 };
 
-const base = environment.local;
+const base = environment.aws;
 export {base};
 /*
  * For easier debugging in development mode, you can import the following file

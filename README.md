@@ -1,5 +1,11 @@
 # MyDictionaryFE
 
+npm install
+
+npm update
+
+ng serve
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
 ## Development server

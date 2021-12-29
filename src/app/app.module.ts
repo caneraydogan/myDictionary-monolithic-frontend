@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     {path: 'entry-list', component: EntryListComponent},
     {path: 'new-entry', component: NewEntryComponent},
     {path: 'practice', component: PracticeComponent},
-    {path: 'practice/:language/:id', component: PracticeComponent},
+    {path: 'practice/:id', component: PracticeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'user', component: UserComponent}

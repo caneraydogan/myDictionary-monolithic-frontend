@@ -4,16 +4,6 @@
         <form #EntryForm="ngForm">
             <div class="form-group row">
                 <div class="col">
-                    <input type="radio" required [id]="currentEntry.language" value="EN"
-                           name="language"
-                           (click)="clearFields()"
-                           [(ngModel)]="currentEntry.language"> English
-                    <input type="radio" required [id]="currentEntry.language" value="DE"
-                           name="language"
-                           [(ngModel)]="currentEntry.language"> Deutsch
-                </div>
-
-                <div class="col">
                     <button name="showPractice"
                             [(ngModel)]="filter.showPractice"
                             ngDefaultControl
@@ -39,9 +29,10 @@
 
             </div>
 
-            <div class="form-group" *ngIf="currentEntry.language == 'DE'">
+            <div class="form-group">
                 <input id="artikel-checkbox" type="checkbox" class="manuel-checkbox"
-                       [(ngModel)]="filter.set.checkbox.artikel" [ngModelOptions]="{standalone: true}"/>
+                       [(ngModel)]="filter.set.checkbox.artikel"
+                       [ngModelOptions]="{standalone: true}"/>
                 <label>Artikel</label>
                 <div class="row">
                     <div class="col-sm-11">

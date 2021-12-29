@@ -9,7 +9,6 @@ export class Entry {
     meaningList: Array<Meaning> = [];
     usageList: Array<Usage> = [];
     artikel: string;
-    language: string;
     donePracticing: boolean;
 
 
@@ -20,7 +19,6 @@ export class Entry {
         this.meaningList.push(new Meaning());
         this.usageList.push(new Usage());
         this.artikel = null;
-        this.language = 'EN';
         this.donePracticing = null;
     }
 
