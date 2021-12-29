@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   local: 'http://localhost:8080',
-  aws: 'http://ec2-3-123-2-213.eu-central-1.compute.amazonaws.com:8080'
+  aws: 'http://68.183.130.50:8080'
 };
 
 const base = environment.local;

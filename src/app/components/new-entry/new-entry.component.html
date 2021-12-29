@@ -3,13 +3,6 @@
     <div class="card card-body mb-3">
         <form #EntryForm="ngForm">
             <div class="form-group">
-                <input type="radio" #language="ngModel" required [id]="currentEntry.language" value="EN" name="language"
-                       [(ngModel)]="currentEntry.language"> English
-                <input type="radio" #language="ngModel" required [id]="currentEntry.language" value="DE" name="language"
-                       [(ngModel)]="currentEntry.language"> Deutsch
-            </div>
-
-            <div class="form-group" *ngIf="currentEntry.language == 'DE'">
                 <label>Artikel</label>
                 <div class="row">
                     <div class="col-sm-10">
@@ -19,7 +12,7 @@
                                [(ngModel)]="currentEntry.artikel"
                                name="artikel"
                                #artikel="ngModel"
-                               [required]="currentEntry.language=='DE'">
+                               required>
                         <div class="invalid-feedback">
                             Invalid Artikel
                         </div>
@@ -105,7 +98,7 @@
     </div>
     <div *ngIf="lastEntry.word !== null" class="card card-body mb-3">
         <label class="lastEntryTitle">Last Entry</label>
-        <div *ngIf="lastEntry.language=='DE'">
+        <div>
             <label class="lastEntryPoint">Artikel:</label>
             <span class="lastEntryDesc">{{lastEntry.artikel}}</span>
         </div>

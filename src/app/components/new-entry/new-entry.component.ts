@@ -24,10 +24,6 @@ export class NewEntryComponent implements OnInit {
 
     filter = {
         get: {
-            language: [
-                {key: 'English', value: 'EN'},
-                {key: 'Deutsch', value: 'DE'}
-            ],
             artikel: [
                 {value: 'der'},
                 {value: 'die'},
@@ -109,10 +105,8 @@ export class NewEntryComponent implements OnInit {
     }
 
     clearFields() {
-        const language = this.currentEntry.language;
         this.lastEntry = this.currentEntry;
         this.currentEntry = new Entry();
-        this.currentEntry.language = language;
         this.missingMeaning = true;
         this.missingUsage = true;
     }

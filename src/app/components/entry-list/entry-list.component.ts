@@ -13,15 +13,6 @@ import {AuthenticationService} from '../services/authentication.service';
 export class EntryListComponent implements OnInit {
 
     public filter = {
-        get: {
-            language: [
-                {value: 'EN'},
-                {value: 'DE'}
-            ]
-        },
-        set: {
-            language: ''
-        },
         showPractice: true,
         showDonePractising: false,
         searchValue: ''
@@ -35,21 +26,17 @@ export class EntryListComponent implements OnInit {
 
 
     ngOnInit() {
-        this.filter.set.language = 'EN';
         this.setTableColumns();
     }
 
     setTableColumns() {
-        if (this.filter.set.language === 'DE') {
             this.tableColumns = ['artikel', 'word', 'meaning', 'usage', 'actions'];
-        } else if (this.filter.set.language === 'EN') {
-            this.tableColumns = ['word', 'meaning', 'usage', 'actions'];
-        }
+
     }
 
     getEntries() {
         this.setTableColumns();
-        this.dataService.getEntries(AuthenticationService.getUserUUId(), this.filter.set.language, this.filter.showDonePractising).subscribe(response => {
+        this.dataService.getEntries(AuthenticationService.getUserUUId(), this.filter.showDonePractising).subscribe(response => {
             if (response.status === ResponseBodyStatus.FAIL) {
                 console.log('Error code:' + response.errorCode);
                 console.log('Error message:' + response.message);
@@ -61,7 +48,6 @@ export class EntryListComponent implements OnInit {
     }
 
     deleteEntry(currentEntry: Entry) {
-        currentEntry.language = this.filter.set.language;
         this.dataService.deleteEntry(currentEntry).subscribe(response => {
             if (response.status === ResponseBodyStatus.FAIL) {
                 console.log('Error code:' + response.errorCode);
@@ -85,7 +71,7 @@ export class EntryListComponent implements OnInit {
 
     search() {
         this.setTableColumns();
-        this.dataService.searchByWord(AuthenticationService.getUserUUId(), this.filter.set.language, this.filter.searchValue).subscribe(response => {
+        this.dataService.searchByWord(AuthenticationService.getUserUUId(), this.filter.searchValue).subscribe(response => {
             if (response.status === ResponseBodyStatus.FAIL) {
                 console.log('Error code:' + response.errorCode);
                 console.log('Error message:' + response.message);
@@ -97,6 +83,6 @@ export class EntryListComponent implements OnInit {
     }
 
     updateEntry(currentEntry: Entry) {
-        this.router.navigate(['practice', this.filter.set.language, currentEntry.id], {skipLocationChange: true});
+        this.router.navigate(['practice', currentEntry.id], {skipLocationChange: true});
     }
 }

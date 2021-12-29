@@ -31,89 +31,56 @@ export class DataService {
 
     saveEntry(currentEntry: Entry): Observable<ResponseBody<any>> {
         this.setTokenToHeader();
-        if (currentEntry.language === 'DE') {
-            return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.DE.entry.saveEntry}`, currentEntry, this.httpOptions);
-        } else {
-            return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.EN.entry.saveEntry}`, currentEntry, this.httpOptions);
-        }
+        return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.entry.saveEntry}`, currentEntry, this.httpOptions);
     }
 
     updateEntry(currentEntry: Entry): Observable<ResponseBody<any>> {
         this.setTokenToHeader();
-        if (currentEntry.language === 'DE') {
-            return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.DE.entry.updateEntry}`, currentEntry, this.httpOptions);
-        } else {
-            return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.EN.entry.updateEntry}`, currentEntry, this.httpOptions);
-        }
+        return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.entry.updateEntry}`, currentEntry, this.httpOptions);
     }
 
     deleteEntry(currentEntry: Entry): Observable<ResponseBody<any>> {
         this.setTokenToHeader();
-        if (currentEntry.language === 'DE') {
-            return this.httpClient.delete<ResponseBody<any>>(`${config.endpoints.DE.entry.deleteEntry}` + '/' + currentEntry.id,
-                this.httpOptions);
-        } else {
-            return this.httpClient.delete<ResponseBody<any>>(`${config.endpoints.EN.entry.deleteEntry}` + '/' + currentEntry.id,
-                this.httpOptions);
-        }
+        return this.httpClient.delete<ResponseBody<any>>(`${config.endpoints.entry.deleteEntry}` + '/' + currentEntry.id,
+            this.httpOptions);
+
     }
 
-    getEntries(userUUId: string, language: string, showDonePractising: boolean) {
+    getEntries(userUUId: string, showDonePractising: boolean) {
         this.setTokenToHeader();
-        if (language === 'DE') {
-            return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.DE.entry.findAll}` + '/' + userUUId
-                + '/' + showDonePractising,
-                this.httpOptions);
-        } else {
-            return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.EN.entry.findAll}` + '/' + userUUId
-                + '/' + showDonePractising,
-                this.httpOptions);
-        }
+
+        return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.entry.findAll}` + '/' + userUUId
+            + '/' + showDonePractising,
+            this.httpOptions);
+
     }
 
-    searchByWord(userUUId: string, language: string, word: string) {
+    searchByWord(userUUId: string, word: string) {
         this.setTokenToHeader();
-        if (language === 'DE') {
-            return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.DE.entry.findEntryByWord}` + '/' + userUUId
-                + '/' + word, this.httpOptions);
-        } else {
-            return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.EN.entry.findEntryByWord}` + '/' + userUUId
-                + '/' + word, this.httpOptions);
-        }
+        return this.httpClient.get<ResponseBody<any>>(`${config.endpoints.entry.findEntryByWord}` + '/' + userUUId
+            + '/' + word, this.httpOptions);
+
     }
 
-    getRandomEntry(userUUId: string, language: string, showDonePractising: boolean) {
+    getRandomEntry(userUUId: string, showDonePractising: boolean) {
         this.setTokenToHeader();
-        if (language === 'DE') {
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.DE.entry.findRandomEntry}` + '/' + userUUId + '/' + showDonePractising, this.httpOptions);
-        } else {
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.EN.entry.findRandomEntry}` + '/' + userUUId + '/' + showDonePractising, this.httpOptions);
-        }
+        return this.httpClient.get<ResponseBody<any>>
+        (`${config.endpoints.entry.findRandomEntry}` + '/' + userUUId + '/' + showDonePractising, this.httpOptions);
+
     }
 
-    getEntryById(language: string, id: number) {
+    getEntryById(id: number) {
         this.setTokenToHeader();
-        if (language === 'DE') {
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.DE.entry.findEntry}` + '/' + id, this.httpOptions);
-        } else {
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.EN.entry.findEntry}` + '/' + id, this.httpOptions);
-        }
+        return this.httpClient.get<ResponseBody<any>>
+        (`${config.endpoints.entry.findEntry}` + '/' + id, this.httpOptions);
+
     }
 
     updatePractice(currentEntry: Entry) {
         this.setTokenToHeader();
-        if (currentEntry.language === 'DE') {
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.DE.entry.updatePractice}` + '/' + currentEntry.id + '/' + !currentEntry.donePracticing, this.httpOptions);
-        } else {
-            // tslint:disable-next-line:max-line-length
-            return this.httpClient.get<ResponseBody<any>>
-            (`${config.endpoints.EN.entry.updatePractice}` + '/' + currentEntry.id + '/' + !currentEntry.donePracticing, this.httpOptions);
-        }
+        return this.httpClient.get<ResponseBody<any>>
+        (`${config.endpoints.entry.updatePractice}` + '/' + currentEntry.id + '/' + !currentEntry.donePracticing, this.httpOptions);
+
     }
 
     register(user: User) {
