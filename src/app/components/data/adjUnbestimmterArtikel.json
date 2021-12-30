@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "fall": "Nominativ",
+      "sm": {"text": "gut<b>er</b> Vater", "visible": false},
+      "sf": {"text": "gut<b>e</b> Mutter", "visible": false},
+      "sn": {"text": "gut<b>es</b> Kind", "visible": false},
+      "pm": {"text": "gut<b>e</b> Väter", "visible": false},
+      "pf": {"text": "gut<b>e</b> Mütter", "visible": false},
+      "pn": {"text": "gut<b>e</b> Kinder", "visible": false}
+    },
+    {
+      "fall": "Akkusativ",
+      "sm": {"text": "guten Vater", "visible": false},
+      "sf": {"text": "gut<b>e</b> Mutter", "visible": false},
+      "sn": {"text": "gut<b>es</b> Kind", "visible": false},
+      "pm": {"text": "gut<b>e</b> Väter", "visible": false},
+      "pf": {"text": "gut<b>e</b> Mütter", "visible": false},
+      "pn": {"text": "gut<b>e</b> Kinder", "visible": false}
+    },
+    {
+      "fall": "Dativ",
+      "sm": {"text": "gut<b>em</b> Vater", "visible": false},
+      "sf": {"text": "gut<b>er</b> Mutter", "visible": false},
+      "sn": {"text": "gut<b>em</b> Kind", "visible": false},
+      "pm": {"text": "guten Väter<b>n</b>", "visible": false},
+      "pf": {"text": "guten Mütter<b>n</b>", "visible": false},
+      "pn": {"text": "guten Kinder<b>n</b>", "visible": false}
+    },
+    {
+      "fall": "Genitiv",
+      "sm": {"text": "guten Vater<b>s</b>", "visible": false},
+      "sf": {"text": "gut<b>er</b> Mutter", "visible": false},
+      "sn": {"text": "guten Kind<b>s</b>", "visible": false},
+      "pm": {"text": "gut<b>er</b> Väter", "visible": false},
+      "pf": {"text": "gut<b>er</b> Mütter", "visible": false},
+      "pn": {"text": "gut<b>er</b> Kinder", "visible": false}
+    }
+  ]
+}

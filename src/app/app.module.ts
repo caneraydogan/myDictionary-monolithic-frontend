@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { AdjOhneArtikelComponent } from './components/adj-ohne-artikel/adj-ohne-artikel.component';
+import { AdjBestimmterArtikelComponent } from './components/adj-bestimmter-artikel/adj-bestimmter-artikel.component';
+import { AdjUnbestimmterArtikelComponent } from './components/adj-unbestimmter-artikel/adj-unbestimmter-artikel.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -34,8 +37,12 @@ const appRoutes: Routes = [
     {path: 'practice/:id', component: PracticeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'user', component: UserComponent}
+    {path: 'user', component: UserComponent},
+    {path: 'adj-ohne-artikel', component: AdjOhneArtikelComponent},
+    {path: 'adj-bestimmter-artikel', component: AdjBestimmterArtikelComponent},
+    {path: 'adj-unbestimmter-artikel', component: AdjUnbestimmterArtikelComponent}
 ];
+
 
 @NgModule({
     declarations: [
@@ -46,7 +53,10 @@ const appRoutes: Routes = [
         LoginComponent,
         RegisterComponent,
         UserComponent,
-        SidebarComponent
+        SidebarComponent,
+        AdjOhneArtikelComponent,
+        AdjBestimmterArtikelComponent,
+        AdjUnbestimmterArtikelComponent
     ],
     imports: [
         BrowserModule,
@@ -66,8 +76,8 @@ const appRoutes: Routes = [
         PerfectScrollbarModule,
         BrowserAnimationsModule
     ],
-    providers: [DataService, EntryListComponent,
-        NewEntryComponent, PracticeComponent, LoginComponent, RegisterComponent, UserComponent,
+    providers: [DataService, EntryListComponent, NewEntryComponent, PracticeComponent,
+        LoginComponent, RegisterComponent, UserComponent, AdjOhneArtikelComponent,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,

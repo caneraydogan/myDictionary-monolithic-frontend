@@ -1,0 +1,110 @@
+<div class="page-container mat-elevation-z8">
+    <div class="card card-body mb-3">
+
+
+        <mat-table class="table-container" [dataSource]="dataSource">
+
+            <ng-container matColumnDef="fall">
+                <mat-header-cell *matHeaderCellDef class="second-header"></mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="second-header">
+                    {{entry.fall}}
+                </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="sm">
+                <mat-header-cell *matHeaderCellDef class="second-header">Maskulin</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.sm)">
+                    <div [innerHTML]=entry.sm.text
+                         [hidden]="!entry.sm.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="sf">
+                <mat-header-cell *matHeaderCellDef class="second-header">Feminin</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.sf)">
+                    <div [innerHTML]=entry.sf.text
+                         [hidden]="!entry.sf.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="sn">
+                <mat-header-cell *matHeaderCellDef class="second-header">Neutral</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.sn)">
+                    <div [innerHTML]=entry.sn.text
+                         [hidden]="!entry.sn.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="pm">
+                <mat-header-cell *matHeaderCellDef class="second-header">Maskulin</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.pm)">
+                    <div [innerHTML]=entry.pm.text
+                         [hidden]="!entry.pm.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pf">
+                <mat-header-cell *matHeaderCellDef class="second-header">Feminin</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.pf)">
+                    <div [innerHTML]=entry.pf.text
+                         [hidden]="!entry.pf.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pn">
+                <mat-header-cell *matHeaderCellDef class="second-header">Neutral</mat-header-cell>
+                <mat-cell *matCellDef="let entry" class="line" (click)="toggleVisibility(entry.pn)">
+                    <div [innerHTML]=entry.pn.text
+                         [hidden]="!entry.pn.visible"
+                    ></div>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Header row zero group -->
+            <ng-container matColumnDef="table-title">
+                <mat-header-cell *matHeaderCellDef
+                                 class="zero-header"
+                                 [attr.colspan]="7">Adjektivdeklination mit dem unbestimmten Artikel
+                </mat-header-cell>
+            </ng-container>
+
+            <!-- Header row first group -->
+            <ng-container matColumnDef="singular-group">
+                <mat-header-cell *matHeaderCellDef
+                                 class="first-header"
+                                 [attr.colspan]="3">Singular
+                </mat-header-cell>
+            </ng-container>
+
+            <!-- Header row second group -->
+            <ng-container matColumnDef="plural-group">
+                <mat-header-cell *matHeaderCellDef
+                                 class="first-header"
+                                 [attr.colspan]="3">Plural
+                </mat-header-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['table-title']"></mat-header-row>
+            <mat-header-row *matHeaderRowDef="['singular-group', 'plural-group']"></mat-header-row>
+            <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+        </mat-table>
+    </div>
+
+    <button (click)="toggleAll()"
+            class="btn btn-success btn-block">Toggle All
+    </button>
+
+</div>
+
+
+
+
+
