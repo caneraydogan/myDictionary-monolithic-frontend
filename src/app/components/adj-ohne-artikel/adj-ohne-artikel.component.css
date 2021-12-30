@@ -1,0 +1,77 @@
+
+.page-container {
+    overflow: auto;
+    padding-left: 265px;
+    padding-right: 10%;
+    height: 700px;
+}
+
+.table-container {
+    background: white;
+}
+
+.zero-header {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-align: center !important;
+    justify-content: center !important;
+    border:1px solid white;
+    color: black;
+    background: #f0fff5;
+}
+
+.first-header {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-align: center !important;
+    justify-content: center !important;
+    border:2px solid white ;
+    color: black;
+    background: #fffaeb;
+}
+
+.second-header {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-align: center !important;
+    justify-content: center !important;
+    border:2px solid white;
+    background: #f0fff5;
+}
+
+.line {
+    font-weight: normal;
+    color: black;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    height: auto;
+    text-align: center !important;
+    justify-content: center !important;
+    border:2px solid white !important;
+    background: #fffaeb;
+}
+
+.mat-header-row {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border:1px solid white;
+}
+.mat-row {
+    border:1px solid white;
+}
+
+.mat-column-actions {
+    white-space: unset;
+    flex: 0 0 18%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+}
+
+

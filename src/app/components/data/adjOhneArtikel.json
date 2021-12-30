@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "fall": "Nominativ",
+      "sm": {"text": "der gut<b>e</b> Vater", "visible": false},
+      "sf": {"text": "die gut<b>e</b> Mutter", "visible": false},
+      "sn": {"text": "das gut<b>e</b> Kind", "visible": false},
+      "pm": {"text": "die guten Väter", "visible": false},
+      "pf": {"text": "die guten Mütter", "visible": false},
+      "pn": {"text": "die guten Kinder", "visible": false}
+    },
+    {
+      "fall": "Akkusativ",
+      "sm": {"text": "den guten Vater", "visible": false},
+      "sf": {"text": "die gut<b>e</b> Mutter", "visible": false},
+      "sn": {"text": "das gut<b>e</b> Kind", "visible": false},
+      "pm": {"text": "die guten Väter", "visible": false},
+      "pf": {"text": "die guten Mütter", "visible": false},
+      "pn": {"text": "die guten Kinder", "visible": false}
+    },
+    {
+      "fall": "Dativ",
+      "sm": {"text": "dem guten Vater", "visible": false},
+      "sf": {"text": "der guten Mutter", "visible": false},
+      "sn": {"text": "dem guten Kind", "visible": false},
+      "pm": {"text": "den guten Väter<b>n</b>", "visible": false},
+      "pf": {"text": "den guten Mütter<b>n</b>", "visible": false},
+      "pn": {"text": "den guten Kinder<b>n</b>", "visible": false}
+    },
+    {
+      "fall": "Genitiv",
+      "sm": {"text": "des guten Vater<b>s</b>", "visible": false},
+      "sf": {"text": "der guten Mutter", "visible": false},
+      "sn": {"text": "des guten Kind<b>s</b>", "visible": false},
+      "pm": {"text": "der guten Väter", "visible": false},
+      "pf": {"text": "der guten Mütter", "visible": false},
+      "pn": {"text": "der guten Kinder", "visible": false}
+    }
+  ]
+}

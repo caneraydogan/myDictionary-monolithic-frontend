@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
                     element.active = false;
                 }
             });
-        } else if (currentMenu.type === 'simple') {
+        } else {
             this.router.navigate([currentMenu.routerLink]);
         }
     }

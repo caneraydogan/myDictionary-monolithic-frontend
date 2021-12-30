@@ -31,12 +31,15 @@ export class SidebarService {
             submenus: [
                 {
                     title: 'Adjektive ohne Artikel',
+                    routerLink: './adj-ohne-artikel'
                 },
                 {
-                    title: 'Bestimmtem Artikel '
+                    title: 'Bestimmter Artikel',
+                    routerLink: './adj-bestimmter-artikel'
                 },
                 {
-                    title: 'Unbestimmter Artikel'
+                    title: 'Unbestimmter Artikel',
+                    routerLink: './adj-unbestimmter-artikel'
                 }
             ]
         }
