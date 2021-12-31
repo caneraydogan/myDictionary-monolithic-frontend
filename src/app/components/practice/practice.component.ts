@@ -56,11 +56,10 @@ export class PracticeComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
             this.id = +params.get('id');
+            if (this.id !== undefined && this.id !== 0) {
+                this.getEntryById(params.get('word'), (params.get('donePractising') === 'true'));
+            }
         });
-
-        if (this.id !== undefined) {
-            this.getEntryById();
-        }
     }
 
     updateEntry() {
@@ -108,8 +107,8 @@ export class PracticeComponent implements OnInit {
         });
     }
 
-    getEntryById() {
-        this.dataService.getEntryById(this.id).subscribe(response => {
+    getEntryById(word: string, donePractising: boolean) {
+        this.dataService.getEntryById(AuthenticationService.getUserUUId(), word, donePractising ).subscribe(response => {
             if (response.status === ResponseBodyStatus.OK) {
                 this.currentEntry = response.data;
                 this.currentEntry.userUUId = AuthenticationService.getUserUUId();

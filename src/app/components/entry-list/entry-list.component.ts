@@ -83,6 +83,6 @@ export class EntryListComponent implements OnInit {
     }
 
     updateEntry(currentEntry: Entry) {
-        this.router.navigate(['practice', currentEntry.id], {skipLocationChange: true});
+        this.router.navigate(['practice', currentEntry], {skipLocationChange: true});
     }
 }
