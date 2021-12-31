@@ -42,6 +42,21 @@ export class SidebarService {
                     routerLink: './adj-unbestimmter-artikel'
                 }
             ]
+        },
+        {
+            title: 'Practice',
+            active: false,
+            type: 'dropdown',
+            submenus: [
+                {
+                    title: 'Verb',
+                    routerLink: './practice-verb'
+                },
+                {
+                    title: 'Noun',
+                    routerLink: './practice'
+                }
+            ]
         }
     ];
 

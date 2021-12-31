@@ -24,6 +24,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AdjOhneArtikelComponent } from './components/adj-ohne-artikel/adj-ohne-artikel.component';
 import { AdjBestimmterArtikelComponent } from './components/adj-bestimmter-artikel/adj-bestimmter-artikel.component';
 import { AdjUnbestimmterArtikelComponent } from './components/adj-unbestimmter-artikel/adj-unbestimmter-artikel.component';
+import { PracticeVerbComponent } from './components/practice-verb/practice-verb.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     {path: 'user', component: UserComponent},
     {path: 'adj-ohne-artikel', component: AdjOhneArtikelComponent},
     {path: 'adj-bestimmter-artikel', component: AdjBestimmterArtikelComponent},
-    {path: 'adj-unbestimmter-artikel', component: AdjUnbestimmterArtikelComponent}
+    {path: 'adj-unbestimmter-artikel', component: AdjUnbestimmterArtikelComponent},
+    {path: 'practice-verb', component: PracticeVerbComponent}
 ];
 
 
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
         SidebarComponent,
         AdjOhneArtikelComponent,
         AdjBestimmterArtikelComponent,
-        AdjUnbestimmterArtikelComponent
+        AdjUnbestimmterArtikelComponent,
+        PracticeVerbComponent
     ],
     imports: [
         BrowserModule,
