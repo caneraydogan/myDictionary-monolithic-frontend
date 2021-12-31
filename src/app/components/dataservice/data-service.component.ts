@@ -69,18 +69,17 @@ export class DataService {
 
     }
 
-    getEntryById(id: number) {
+    getEntryById(uuid: string, word: string, donePractising: boolean) {
         this.setTokenToHeader();
         return this.httpClient.get<ResponseBody<any>>
-        (`${config.endpoints.entry.findEntry}` + '/' + id, this.httpOptions);
+        (`${config.endpoints.entry.findEntry}` + '/' + uuid + '/' + word + '/' + donePractising, this.httpOptions);
 
     }
 
     updatePractice(currentEntry: Entry) {
         this.setTokenToHeader();
-        return this.httpClient.get<ResponseBody<any>>
-        (`${config.endpoints.entry.updatePractice}` + '/' + currentEntry.id + '/' + !currentEntry.donePracticing, this.httpOptions);
-
+        return this.httpClient.post<ResponseBody<any>>(`${config.endpoints.entry.updatePractice}` + '/' + !currentEntry.donePracticing,
+            currentEntry, this.httpOptions);
     }
 
     register(user: User) {
