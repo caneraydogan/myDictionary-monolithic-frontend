@@ -9,14 +9,32 @@ export class SidebarService {
         {
             title: 'Practice',
             active: false,
-            type: 'simple',
-            routerLink: './practice'
+            type: 'dropdown',
+            submenus: [
+                {
+                    title: 'Verb',
+                    routerLink: './practice-verb'
+                },
+                {
+                    title: 'Noun',
+                    routerLink: './practice'
+                }
+            ]
         },
         {
-            title: 'New Entry',
+            title: 'New Word',
             active: false,
-            type: 'simple',
-            routerLink: './new-entry'
+            type: 'dropdown',
+            submenus: [
+                {
+                    title: 'Verb',
+                    routerLink: './new-verb'
+                },
+                {
+                    title: 'Noun',
+                    routerLink: './new-noun'
+                }
+            ]
         },
         {
             title: 'Entry List',
@@ -40,21 +58,6 @@ export class SidebarService {
                 {
                     title: 'Unbestimmter Artikel',
                     routerLink: './adj-unbestimmter-artikel'
-                }
-            ]
-        },
-        {
-            title: 'Practice',
-            active: false,
-            type: 'dropdown',
-            submenus: [
-                {
-                    title: 'Verb',
-                    routerLink: './practice-verb'
-                },
-                {
-                    title: 'Noun',
-                    routerLink: './practice'
                 }
             ]
         }

@@ -4,7 +4,6 @@ import {ResponseBodyStatus} from '../utils/endpoint.types';
 import {DataService} from '../dataservice/data-service.component';
 import {Meaning} from '../model/Meaning';
 import {Usage} from '../model/Usage';
-import {AuthenticationService} from '../services/authentication.service';
 
 
 @Component({

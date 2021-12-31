@@ -25,6 +25,8 @@ import { AdjOhneArtikelComponent } from './components/adj-ohne-artikel/adj-ohne-
 import { AdjBestimmterArtikelComponent } from './components/adj-bestimmter-artikel/adj-bestimmter-artikel.component';
 import { AdjUnbestimmterArtikelComponent } from './components/adj-unbestimmter-artikel/adj-unbestimmter-artikel.component';
 import { PracticeVerbComponent } from './components/practice-verb/practice-verb.component';
+import { NewVerbComponent } from './components/new-verb/new-verb.component';
+import { NewNounComponent } from './components/new-noun/new-noun.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -34,6 +36,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 const appRoutes: Routes = [
     {path: 'entry-list', component: EntryListComponent},
     {path: 'new-entry', component: NewEntryComponent},
+    {path: 'new-verb', component: NewVerbComponent},
+    {path: 'new-noun', component: NewNounComponent},
     {path: 'practice', component: PracticeComponent},
     {path: 'practice/:id', component: PracticeComponent},
     {path: 'login', component: LoginComponent},
@@ -59,7 +63,9 @@ const appRoutes: Routes = [
         AdjOhneArtikelComponent,
         AdjBestimmterArtikelComponent,
         AdjUnbestimmterArtikelComponent,
-        PracticeVerbComponent
+        PracticeVerbComponent,
+        NewVerbComponent,
+        NewNounComponent
     ],
     imports: [
         BrowserModule,
