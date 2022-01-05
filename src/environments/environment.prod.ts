@@ -4,8 +4,7 @@
 
 export const environment = {
   production: true,
-  local: 'http://localhost:8080',
-  aws: 'http://68.183.130.50:8080'
+  aws: 'http://*******:8080'
 };
 
 const base = environment.aws;
