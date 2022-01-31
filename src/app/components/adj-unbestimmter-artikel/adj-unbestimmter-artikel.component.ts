@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
-import AdjUnbestimmterArtikelJson from '../data/adjUnbestimmterArtikel.json';
+import AdjUnbestimmterArtikel from '../data/AdjUnbestimmterArtikel.json';
 
 @Component({
     selector: 'app-adj-unbestimmter-artikel',
@@ -19,7 +19,7 @@ export class AdjUnbestimmterArtikelComponent implements OnInit {
 
     ngOnInit() {
         this.tableColumns = ['fall', 'sm', 'sf', 'sn', 'pm', 'pf', 'pn'];
-        this.dataSource = AdjUnbestimmterArtikelJson.data;
+        this.dataSource = AdjUnbestimmterArtikel.data;
         console.log(this.dataSource);
     }
 

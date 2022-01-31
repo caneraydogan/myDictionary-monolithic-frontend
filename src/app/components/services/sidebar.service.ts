@@ -10,24 +10,28 @@ export class SidebarService {
             title: 'Practice',
             active: false,
             type: 'simple',
-            routerLink: './practice'
+            routerLink: './practice',
+            public: true
         },
         {
             title: 'New Entry',
             active: false,
             type: 'simple',
-            routerLink: './new-entry'
+            routerLink: './new-entry',
+            public: false
         },
         {
             title: 'Entry List',
             active: false,
             type: 'simple',
-            routerLink: './entry-list'
+            routerLink: './entry-list',
+            public: true
         },
         {
             title: 'AdjektivDeklination',
             active: false,
             type: 'dropdown',
+            public: true,
             submenus: [
                 {
                     title: 'Adjektive ohne Artikel',

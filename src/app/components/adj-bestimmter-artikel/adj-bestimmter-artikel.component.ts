@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // @ts-ignore
-import AdjBestimmterArtikelJson from '../../components/data/adjBestimmterArtikel.json';
+import AdjBestimmterArtikelJson from '../data/AdjBestimmterArtikelJson.json';
 
 @Component({
   selector: 'app-adj-bestimmtem-artikel',

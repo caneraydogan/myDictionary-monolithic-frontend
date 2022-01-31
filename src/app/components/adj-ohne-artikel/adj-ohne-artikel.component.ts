@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
-import AdjOhneArtikelJson from '../../components/data/adjOhneArtikel.json';
+import AdjOhneArtikelJson from '../data/AdjOhneArtikelJson.json';
 
 @Component({
     selector: 'app-adj-ohne-artikel',

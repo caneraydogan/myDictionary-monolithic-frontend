@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  aws: 'http://*******:8080'
+  aws: 'http://***.**.**.**:8081'
 };
 
 const base = environment.aws;

@@ -59,6 +59,10 @@ export class SidebarComponent implements OnInit {
         return this.authenticationService.currentUserValue !== null;
     }
 
+    isLinkDisplayed(currentMenu): boolean {
+        return currentMenu.public || this.authenticationService.currentUserValue !== null;
+    }
+
     get firstName(): string {
         if (this.authenticationService.currentUserValue !== null) {
             return this.authenticationService.currentUserValue.firstName;
