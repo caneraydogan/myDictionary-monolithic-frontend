@@ -11,7 +11,7 @@ export class SidebarService {
             active: false,
             type: 'simple',
             routerLink: './practice',
-            public: true
+            public: false
         },
         {
             title: 'New Entry',
@@ -25,7 +25,7 @@ export class SidebarService {
             active: false,
             type: 'simple',
             routerLink: './entry-list',
-            public: true
+            public: false
         },
         {
             title: 'AdjektivDeklination',
